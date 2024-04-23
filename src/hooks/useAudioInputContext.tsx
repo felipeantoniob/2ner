@@ -1,5 +1,6 @@
 import { type ReactNode, createContext, useEffect, useState } from "react";
 import { BUFFER_SIZE } from "../constants";
+import checkAudioInput from "../utils/checkAudioInput";
 
 const mediaTrackConstraints: MediaTrackConstraints = {
   echoCancellation: false,
@@ -8,16 +9,6 @@ const mediaTrackConstraints: MediaTrackConstraints = {
 };
 
 const mediaDevices = navigator.mediaDevices;
-
-const checkAudioInput = async () => {
-  const mediaDeviceInfoArray = await mediaDevices.enumerateDevices();
-
-  const hasAudioInput = mediaDeviceInfoArray.some(
-    (info) => info.kind === "audioinput",
-  );
-
-  return hasAudioInput;
-};
 
 interface AudioInputContextType {
   audioContext: AudioContext | null;

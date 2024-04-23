@@ -11,7 +11,7 @@ function Tuner({ handleStart, handleStop, pitch }: TunerProps) {
   const note = pitch.frequency === 0 ? null : frequencyToNote(pitch.frequency);
 
   return (
-    <div className="mx-auto max-w-xl flex-col bg-slate-800">
+    <div className="mx-auto w-full max-w-xl flex-col bg-slate-800">
       <div className="flex justify-center gap-2">
         <button
           className="rounded-lg bg-green-800 px-4 py-2"
@@ -40,7 +40,7 @@ function Tuner({ handleStart, handleStop, pitch }: TunerProps) {
         }}
       />
       <div
-        className={`mx-auto flex h-24 w-24 flex-row ${pitch.clarity > 85 ? "text-slate-100" : "text-slate-500"}`}
+        className={`mx-auto flex h-24 w-24 flex-row ${pitch.clarity > 85 ? "text-slate-100" : "text-transparent"}`}
       >
         <div className="flex h-full w-full items-center justify-center text-8xl">
           {note?.name}
