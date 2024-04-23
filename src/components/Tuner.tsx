@@ -11,7 +11,7 @@ function Tuner({ pitch }: TunerProps) {
   return (
     <div className="z-40 flex h-full w-full flex-1 flex-col items-center justify-center">
       <div
-        className={`transition-all duration-150 ${pitch.clarity > 85 ? "text-slate-100" : "text-transparent"}`}
+        className={`transition-all duration-200 ${pitch.clarity > 85 ? "text-slate-100" : "text-transparent"}`}
       >
         <div>
           <div className="mx-auto flex h-24 w-24 flex-row">
