@@ -18,9 +18,9 @@ const InitOverlay = () => {
               setIsVisible(false);
             }
           }}
-          className="fixed left-0 top-0 z-30 h-screen w-screen backdrop-blur-md"
+          className="fixed left-0 top-0 z-50 h-screen w-screen backdrop-blur-md"
         >
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-100">
             Click to start tuning
           </div>
         </button>

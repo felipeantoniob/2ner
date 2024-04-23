@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
-
-const WIDTH = 300;
-const HEIGHT = 300;
+import useWindowSize from "../hooks/useWindowSize";
 
 type WaveformProps = {
   floatTimeDomainData: Float32Array | null;
@@ -9,25 +7,28 @@ type WaveformProps = {
 
 const Oscilloscope = ({ floatTimeDomainData }: WaveformProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { width, height } = useWindowSize();
+
+  const HEIGHT = height;
 
   useEffect(() => {
     const canvasCtx = canvasRef.current?.getContext("2d");
 
     if (!canvasCtx || !floatTimeDomainData) return;
 
-    canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+    canvasCtx.clearRect(0, 0, width, HEIGHT);
 
     const draw = () => {
       requestAnimationFrame(draw);
 
       canvasCtx.fillStyle = "#121212";
-      canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+      canvasCtx.fillRect(0, 0, width, HEIGHT);
 
       canvasCtx.lineWidth = 2;
       canvasCtx.strokeStyle = "#efefef";
       canvasCtx.beginPath();
 
-      const sliceWidth = (WIDTH * 1.0) / 2048;
+      const sliceWidth = (width * 1.0) / 2048;
       let x = 0;
 
       for (let i = 0; i < 2048; i++) {
@@ -42,19 +43,19 @@ const Oscilloscope = ({ floatTimeDomainData }: WaveformProps) => {
         x += sliceWidth;
       }
 
-      canvasCtx.lineTo(WIDTH, HEIGHT / 2);
+      canvasCtx.lineTo(width, HEIGHT / 2);
       canvasCtx.stroke();
     };
 
     draw();
-  }, [floatTimeDomainData]);
+  }, [floatTimeDomainData, width, HEIGHT]);
 
   return (
-    <div className="mx-auto w-[300px] bg-slate-800">
+    <div className="fixed left-0 top-0 z-30">
       <canvas
         ref={canvasRef}
         id="oscilloscope-canvas"
-        width={WIDTH}
+        width={width}
         height={HEIGHT}
       ></canvas>
     </div>
