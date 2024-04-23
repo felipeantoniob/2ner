@@ -22,17 +22,17 @@ const checkAudioInput = async () => {
 interface AudioInputContextType {
   audioContext: AudioContext | null;
   analyserNode: AnalyserNode | null;
-  error: string | null;
   initAudioInput: () => Promise<void>;
   stopAudioInput: () => void;
+  error: string | null;
 }
 
 export const AudioInputContext = createContext<AudioInputContextType>({
   audioContext: null,
   analyserNode: null,
-  error: null,
   initAudioInput: async () => {},
   stopAudioInput: () => {},
+  error: null,
 });
 
 export const AudioInputContextProvider = ({
@@ -80,18 +80,16 @@ export const AudioInputContextProvider = ({
   };
 
   return (
-    <>
-      <AudioInputContext.Provider
-        value={{
-          audioContext,
-          analyserNode,
-          error,
-          initAudioInput,
-          stopAudioInput,
-        }}
-      >
-        {children}
-      </AudioInputContext.Provider>
-    </>
+    <AudioInputContext.Provider
+      value={{
+        audioContext,
+        analyserNode,
+        error,
+        initAudioInput,
+        stopAudioInput,
+      }}
+    >
+      {children}
+    </AudioInputContext.Provider>
   );
 };

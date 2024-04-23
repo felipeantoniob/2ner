@@ -11,6 +11,7 @@ const useFloatTimeDomainData = (interval: number) => {
 
   useInterval(async () => {
     if (!analyserNode || !audioContext) {
+      floatTimeDomainData.fill(0);
       return;
     }
 
