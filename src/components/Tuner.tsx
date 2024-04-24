@@ -15,21 +15,21 @@ function Tuner({ pitch }: TunerProps) {
       >
         <div>
           <div className="mx-auto flex h-24 w-24 flex-row">
-            <div className="flex h-full w-full items-center justify-center text-8xl">
+            <p className="flex h-full w-full items-center justify-center font-display text-8xl font-medium">
               {note?.name}
-            </div>
+            </p>
             <div className="flex h-full w-8 flex-col">
-              <div className="flex flex-1 items-center justify-center text-4xl">
+              <p className="flex flex-1 items-center justify-center font-display text-4xl">
                 {note?.accidental}
-              </div>
-              <div className="flex flex-1 items-center justify-center text-4xl">
+              </p>
+              <p className="flex flex-1 items-center justify-center font-display text-4xl">
                 {note?.octave}
-              </div>
+              </p>
             </div>
           </div>
           <div className="mt-8">
-            <p className="text-center text-2xl">{note?.cents}</p>
-            <p className="text-center text-sm">cents</p>
+            <p className="text-center font-display text-2xl">{note?.cents}</p>
+            <p className="text-center font-display text-base">cents</p>
           </div>
         </div>
       </div>

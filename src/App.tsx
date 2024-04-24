@@ -24,7 +24,7 @@ function App() {
       <div className="fixed left-0 top-0 z-40 h-full w-full">
         <svg
           preserveAspectRatio="none"
-          className="opacity-25"
+          className="opacity-15"
           height="100%"
           width="100%"
           viewBox="0 0 250 250"
