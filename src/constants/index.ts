@@ -3,7 +3,7 @@ import type { Pitch } from "../types";
 
 export const BUFFER_SIZE = 2048;
 
-const MINIMUM_VOLUME_DECIBELS = -30;
+const MINIMUM_VOLUME_DECIBELS = -15;
 
 export const detector = PitchDetector.forFloat32Array(BUFFER_SIZE);
 detector.minVolumeDecibels = MINIMUM_VOLUME_DECIBELS;
