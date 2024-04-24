@@ -23,24 +23,24 @@ function Tuner({ pitch }: TunerProps) {
         className={`duration-50 transition-all ${pitch.frequency === 0 ? "text-slate-500" : "text-slate-100"}`}
       >
         <div>
-          <div className="mx-auto flex h-24 w-24 flex-row">
-            <p className="flex h-full w-full items-center justify-center font-display text-8xl font-medium">
+          <div className="mx-auto flex h-32 w-32 flex-row">
+            <p className="flex h-full w-full items-center justify-center font-display text-9xl font-medium">
               {displayNote.current?.name}
             </p>
             <div className="flex h-full w-8 flex-col">
-              <p className="flex flex-1 items-center justify-center font-display text-4xl">
+              <p className="flex flex-1 items-center justify-center font-display text-5xl">
                 {displayNote.current?.accidental}
               </p>
-              <p className="flex flex-1 items-center justify-center font-display text-4xl">
+              <p className="flex flex-1 items-center justify-center font-display text-5xl">
                 {displayNote.current?.octave}
               </p>
             </div>
           </div>
           <div className="mt-8">
-            <p className="text-center font-display text-2xl">
+            <p className="text-center font-display text-3xl">
               {displayNote.current?.cents}
             </p>
-            <p className="text-center font-display text-base">
+            <p className="text-center font-display text-xl">
               {displayNote.current && "cents"}
             </p>
           </div>
