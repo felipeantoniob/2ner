@@ -5,6 +5,7 @@ import usePitch from "./hooks/usePitch";
 import InitOverlay from "./components/InitOverlay";
 import frequencyToNote from "./utils/frequencyToNote";
 import Gradients from "./components/Gradients";
+import { SettingsDialog } from "./components/SettingsDialog";
 
 function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);
@@ -16,6 +17,7 @@ function App() {
     <>
       <div className="flex h-screen flex-col bg-slate-950">
         <div className="flex h-1/2 items-center justify-center">
+          <SettingsDialog />
           <Tuner pitch={pitch} />
         </div>
         <div className="h-1/2" />
