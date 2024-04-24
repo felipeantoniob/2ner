@@ -21,11 +21,10 @@ const Oscilloscope = ({ floatTimeDomainData }: WaveformProps) => {
     const draw = () => {
       requestAnimationFrame(draw);
 
-      canvasCtx.fillStyle = "#121212";
-      canvasCtx.fillRect(0, 0, width, HEIGHT);
+      canvasCtx.clearRect(0, 0, width, HEIGHT);
 
       canvasCtx.lineWidth = 2;
-      canvasCtx.strokeStyle = "#efefef";
+      canvasCtx.strokeStyle = "#f9a8d4";
       canvasCtx.beginPath();
 
       const sliceWidth = (width * 1.0) / 2048;

@@ -22,13 +22,15 @@ function Tuner({ pitch }: TunerProps) {
               <div className="flex flex-1 items-center justify-center text-4xl">
                 {note?.accidental}
               </div>
-
               <div className="flex flex-1 items-center justify-center text-4xl">
                 {note?.octave}
               </div>
             </div>
           </div>
-          <p className="text-end text-lg">{note?.cents} cents</p>
+          <div className="mt-8">
+            <p className="text-center text-2xl">{note?.cents}</p>
+            <p className="text-center text-sm">cents</p>
+          </div>
         </div>
       </div>
     </div>
