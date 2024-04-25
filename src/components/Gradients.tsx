@@ -27,23 +27,23 @@ const Gradients = ({ note }: GradientsProps) => {
           <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
         <div
-          className={`absolute inset-0 mx-auto w-2/5 bg-gradient-to-r from-transparent via-emerald-800 transition-all duration-500 ${note && note?.cents < 10 && note?.cents > -10 ? "opacity-25" : "opacity-0"}`}
+          className={`absolute inset-0 mx-auto w-2/5 bg-gradient-to-r from-transparent via-emerald-700 transition-all duration-500 ${note && note?.cents < 10 && note?.cents > -10 ? "opacity-35" : "opacity-0"}`}
         />
         <div className="absolute inset-0 w-3/5">
           <div
-            className={`absolute inset-0 mx-auto w-full bg-gradient-to-r from-transparent from-5% via-amber-900 to-95% transition-all duration-1000 ${note && note?.cents < -10 && note?.cents > -30 ? "opacity-25" : "opacity-0"}`}
+            className={`absolute inset-0 mx-auto w-full bg-gradient-to-r from-transparent from-5% via-amber-700 to-95% transition-all duration-1000 ${note && note?.cents < -10 && note?.cents > -30 ? "opacity-35" : "opacity-0"}`}
           />
         </div>
         <div className="absolute inset-0 ms-auto w-3/5">
           <div
-            className={`absolute inset-0 mx-auto w-full bg-gradient-to-r from-transparent from-5% via-amber-900 to-95% transition-all duration-1000 ${note && note?.cents > 10 && note?.cents < 30 ? "opacity-25" : "opacity-0"}`}
+            className={`absolute inset-0 mx-auto w-full bg-gradient-to-r from-transparent from-5% via-amber-700 to-95% transition-all duration-1000 ${note && note?.cents > 10 && note?.cents < 30 ? "opacity-35" : "opacity-0"}`}
           />
         </div>
         <div
-          className={`absolute inset-0 w-1/5 bg-gradient-to-r from-rose-700 from-10% transition-all duration-1000 ${note && note?.cents < -30 ? "opacity-25" : "opacity-0"}`}
+          className={`absolute inset-0 w-1/5 bg-gradient-to-r from-rose-700 from-10% transition-all duration-1000 ${note && note?.cents < -30 ? "opacity-35" : "opacity-0"}`}
         />
         <div
-          className={`absolute inset-0 ms-auto w-1/5 bg-gradient-to-l from-rose-700 from-10% transition-all duration-1000 ${note && note?.cents > 30 ? "opacity-25" : "opacity-0"}`}
+          className={`absolute inset-0 ms-auto w-1/5 bg-gradient-to-l from-rose-700 from-10% transition-all duration-1000 ${note && note?.cents > 30 ? "opacity-35" : "opacity-0"}`}
         />
       </div>
     </div>
