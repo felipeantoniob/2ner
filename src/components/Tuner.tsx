@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { Pitch } from "../types";
 import frequencyToNote, { Note } from "../utils/frequencyToNote";
+import { A0Frequency, C8Frequency } from "@/constants";
 
 type TunerProps = {
   pitch: Pitch;
@@ -10,7 +11,7 @@ function Tuner({ pitch }: TunerProps) {
   const displayNote = useRef<Note | null>(null);
 
   useEffect(() => {
-    if (pitch.frequency === 0) {
+    if (pitch.frequency < A0Frequency || pitch.frequency > C8Frequency) {
       return;
     }
 

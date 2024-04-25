@@ -14,3 +14,8 @@ export const DEFAULT_PITCH = {
   clarity: 0,
   decibels: -96,
 } as Pitch;
+
+export const A0Frequency = 27.5; // Lowest note frequency
+export const C4Frequency = 261.63; // Middle C frequency
+export const A4Frequency = 440; // Concert pitch frequency
+export const C8Frequency = 4186; // Highest note frequency
