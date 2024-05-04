@@ -6,6 +6,7 @@ import InitOverlay from "./components/InitOverlay";
 import frequencyToNote from "./utils/frequencyToNote";
 import Gradients from "./components/Gradients";
 import { SettingsDialog } from "./components/SettingsDialog";
+import BackgroundContainer from "./components/BackgroundContainer";
 
 function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);
@@ -24,7 +25,9 @@ function App() {
       </div>
       <Oscilloscope floatTimeDomainData={floatTimeDomainData} />
       <InitOverlay />
-      <Gradients note={note} />
+      <BackgroundContainer>
+        <Gradients cents={note?.cents} />
+      </BackgroundContainer>
     </>
   );
 }
