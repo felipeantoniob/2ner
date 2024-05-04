@@ -85,7 +85,7 @@ const semitoneRatio = Math.pow(2, 1 / SEMITONES_IN_OCTAVE);
 
 // https://newt.phys.unsw.edu.au/jw/notes.html
 
-function frequencyToNote(frequency: number): Note {
+function frequencyToNote(frequency: number, transpose = 0): Note {
   const limitedFrequency = Math.min(
     Math.max(frequency, A0Frequency),
     C8Frequency,
@@ -99,7 +99,11 @@ function frequencyToNote(frequency: number): Note {
   const closestNoteFrequency =
     A4Frequency * Math.pow(semitoneRatio, closestSemitone);
 
-  const octavesFromC4 = Math.log2(frequency / C4Frequency);
+  const transposedFrequency =
+    A4Frequency *
+    Math.pow(2, (closestSemitone + transpose) / SEMITONES_IN_OCTAVE);
+
+  const octavesFromC4 = Math.log2(transposedFrequency / C4Frequency);
   const roundedOctave = Math.round(octavesFromC4 * 100) / 100;
   const octave = Math.floor(roundedOctave) + 4;
 
@@ -112,7 +116,7 @@ function frequencyToNote(frequency: number): Note {
   const roundedCents = Math.round(Math.round(centsFromClosestNote * 100) / 100);
   const cents = Object.is(roundedCents, -0) ? 0 : roundedCents;
 
-  const noteIndex = (closestSemitone + NOTES.length) % NOTES.length;
+  const noteIndex = (closestSemitone + NOTES.length + transpose) % NOTES.length;
 
   const note =
     NOTES[noteIndex < 0 ? noteIndex + SEMITONES_IN_OCTAVE : noteIndex];

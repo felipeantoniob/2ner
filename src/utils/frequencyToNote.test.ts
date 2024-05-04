@@ -207,3 +207,38 @@ it("should return correct cents for frequencies that are not exact notes", () =>
   };
   expect(frequencyToNote(frequency3)).toEqual(expectedNote3);
 });
+
+it("should return transposed notes correctly ", () => {
+  // Test case 1: Transpose up 2 semitones
+  const frequency1 = 440; // A4
+  const transpose1 = 2;
+  const expectedNote1: Note = {
+    name: "B",
+    octave: 4,
+    cents: 0,
+    accidental: null,
+  };
+  expect(frequencyToNote(frequency1, transpose1)).toEqual(expectedNote1);
+
+  // Test case 2: Transpose down 1 semitone
+  const frequency2 = 493.88; // B4
+  const transpose2 = -1;
+  const expectedNote2: Note = {
+    name: "A",
+    octave: 4,
+    cents: 0,
+    accidental: "#",
+  };
+  expect(frequencyToNote(frequency2, transpose2)).toEqual(expectedNote2);
+
+  // Test case 3: Transpose up 1 octave
+  const frequency3 = 440; // A4
+  const transpose3 = 12;
+  const expectedNote3: Note = {
+    name: "A",
+    octave: 5,
+    cents: 0,
+    accidental: null,
+  };
+  expect(frequencyToNote(frequency3, transpose3)).toEqual(expectedNote3);
+});
