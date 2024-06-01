@@ -7,15 +7,20 @@ import {
 } from "@/components/ui/dialog";
 import TranspositionSelect from "./TranspositionSelect";
 import { Dispatch, SetStateAction } from "react";
+import AccidentalSelect from "./AccidentalSelect";
 
 type SettingsDialogProps = {
   transposition: number;
   setTransposition: Dispatch<SetStateAction<number>>;
+  displayAsSharp: boolean;
+  setDisplayAsSharp: Dispatch<SetStateAction<boolean>>;
 };
 
 function SettingsDialog({
   transposition,
   setTransposition,
+  displayAsSharp,
+  setDisplayAsSharp,
 }: SettingsDialogProps) {
   return (
     <Dialog>
@@ -58,7 +63,10 @@ function SettingsDialog({
           </div>
           <div className="flex flex-row items-center justify-between">
             <p className="font-body text-slate-100">Accidentals</p>
-            <p className="font-body text-slate-100">♯ / ♭</p>
+            <AccidentalSelect
+              displayAsSharp={displayAsSharp}
+              setDisplayAsSharp={setDisplayAsSharp}
+            />
           </div>
         </div>
       </DialogContent>

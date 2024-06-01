@@ -13,8 +13,10 @@ function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);
   const pitch = usePitch(100);
   const [transposition, setTransposition] = useState(0);
+  const [displayAsSharp, setDisplayAsSharp] = useState(true);
 
-  const note = pitch.frequency === 0 ? null : frequencyToNote(pitch.frequency);
+  const note =
+    pitch.frequency === 0 ? null : frequencyToNote(pitch.frequency, 0, true);
 
   return (
     <>
@@ -23,8 +25,14 @@ function App() {
           <SettingsDialog
             transposition={transposition}
             setTransposition={setTransposition}
+            displayAsSharp={displayAsSharp}
+            setDisplayAsSharp={setDisplayAsSharp}
           />
-          <Tuner pitch={pitch} transposition={transposition} />
+          <Tuner
+            pitch={pitch}
+            transposition={transposition}
+            displayAsSharp={displayAsSharp}
+          />
         </div>
         <div className="h-1/2" />
       </div>

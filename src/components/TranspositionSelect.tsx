@@ -54,7 +54,7 @@ const TranspositionSelect = ({
 
   return (
     <Select value={transposition.toString()} onValueChange={handleValueChange}>
-      <SelectTrigger className="text-body w-20 text-slate-100">
+      <SelectTrigger className="text-body w-22 text-slate-100">
         <SelectValue placeholder="C (0)" className="text-body" />
       </SelectTrigger>
       <SelectContent>
