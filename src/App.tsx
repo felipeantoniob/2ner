@@ -5,12 +5,14 @@ import usePitch from "./hooks/usePitch";
 import InitOverlay from "./components/InitOverlay";
 import frequencyToNote from "./utils/frequencyToNote";
 import Gradients from "./components/Gradients";
-import { SettingsDialog } from "./components/SettingsDialog";
 import BackgroundContainer from "./components/BackgroundContainer";
+import { useState } from "react";
+import SettingsDialog from "./components/SettingsDialog";
 
 function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);
   const pitch = usePitch(100);
+  const [transposition, setTransposition] = useState(0);
 
   const note = pitch.frequency === 0 ? null : frequencyToNote(pitch.frequency);
 
@@ -18,8 +20,11 @@ function App() {
     <>
       <div className="flex h-screen flex-col bg-slate-950">
         <div className="flex h-1/2 items-center justify-center">
-          <SettingsDialog />
-          <Tuner pitch={pitch} />
+          <SettingsDialog
+            transposition={transposition}
+            setTransposition={setTransposition}
+          />
+          <Tuner pitch={pitch} transposition={transposition} />
         </div>
         <div className="h-1/2" />
       </div>

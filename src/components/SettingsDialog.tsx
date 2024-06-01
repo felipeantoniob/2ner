@@ -6,8 +6,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import TranspositionSelect from "./TranspositionSelect";
+import { Dispatch, SetStateAction } from "react";
 
-export function SettingsDialog() {
+type SettingsDialogProps = {
+  transposition: number;
+  setTransposition: Dispatch<SetStateAction<number>>;
+};
+
+function SettingsDialog({
+  transposition,
+  setTransposition,
+}: SettingsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -42,7 +51,10 @@ export function SettingsDialog() {
           </div>
           <div className="text-body flex flex-row items-center justify-between">
             <p className="font-body text-slate-100">Transposition</p>
-            <TranspositionSelect />
+            <TranspositionSelect
+              transposition={transposition}
+              setTransposition={setTransposition}
+            />
           </div>
           <div className="flex flex-row items-center justify-between">
             <p className="font-body text-slate-100">Accidentals</p>
@@ -53,3 +65,5 @@ export function SettingsDialog() {
     </Dialog>
   );
 }
+
+export default SettingsDialog;

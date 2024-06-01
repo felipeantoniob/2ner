@@ -5,9 +5,10 @@ import { A0Frequency, C8Frequency } from "@/constants";
 
 type TunerProps = {
   pitch: Pitch;
+  transposition: number;
 };
 
-function Tuner({ pitch }: TunerProps) {
+function Tuner({ pitch, transposition }: TunerProps) {
   const displayNote = useRef<Note | null>(null);
 
   useEffect(() => {
@@ -15,8 +16,8 @@ function Tuner({ pitch }: TunerProps) {
       return;
     }
 
-    displayNote.current = frequencyToNote(pitch.frequency);
-  }, [pitch.frequency]);
+    displayNote.current = frequencyToNote(pitch.frequency, transposition);
+  }, [pitch.frequency, transposition]);
 
   return (
     <div className="z-40 flex h-full w-full flex-1 flex-col items-center justify-center">
