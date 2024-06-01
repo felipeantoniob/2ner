@@ -21,7 +21,7 @@ describe("MusicalNote", () => {
   describe("getNoteName", () => {
     it("should return the note name without accidental", () => {
       const note = new MusicalNote("G#");
-      expect(note.getNoteName()).toEqual({ base: "G", accidental: "b" });
+      expect(note.getNoteName()).toEqual({ base: "G", accidental: "#" });
     });
 
     it("should return the note name as is if accidental is null", () => {
@@ -30,8 +30,8 @@ describe("MusicalNote", () => {
     });
 
     it("should return the note name with specified accidental", () => {
-      const note = new MusicalNote("Bb");
-      expect(note.getNoteName()).toEqual({ base: "B", accidental: "#" });
+      const note = new MusicalNote("Bb", false);
+      expect(note.getNoteName()).toEqual({ base: "B", accidental: "b" });
     });
 
     it("should return the note name with displayAsSharp true", () => {
@@ -39,9 +39,9 @@ describe("MusicalNote", () => {
       expect(note.getNoteName()).toEqual({ base: "D", accidental: "#" });
     });
 
-    it("should return the note name with displayAsSharp false", () => {
-      const note = new MusicalNote("Db", false);
-      expect(note.getNoteName()).toEqual({ base: "C", accidental: "sharp" });
+    it("should return the note name with displayAsSharp true", () => {
+      const note = new MusicalNote("Db", true);
+      expect(note.getNoteName()).toEqual({ base: "C", accidental: "#" });
     });
   });
 });

@@ -12,6 +12,7 @@ import SettingsDialog from "./components/SettingsDialog";
 function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);
   const pitch = usePitch(100);
+  const [concertPitch, setConcertPitch] = useState(440);
   const [transposition, setTransposition] = useState(0);
   const [displayAsSharp, setDisplayAsSharp] = useState(true);
 
@@ -23,6 +24,8 @@ function App() {
       <div className="flex h-screen flex-col bg-slate-950">
         <div className="flex h-1/2 items-center justify-center">
           <SettingsDialog
+            concertPitch={concertPitch}
+            setConcertPitch={setConcertPitch}
             transposition={transposition}
             setTransposition={setTransposition}
             displayAsSharp={displayAsSharp}

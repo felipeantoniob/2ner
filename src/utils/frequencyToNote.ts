@@ -1,9 +1,4 @@
-import {
-  A0Frequency,
-  A4Frequency,
-  C4Frequency,
-  C8Frequency,
-} from "@/constants";
+import { A0Frequency, C8Frequency } from "@/constants";
 import {
   type Accidental,
   type BaseNote,
@@ -36,12 +31,15 @@ const SEMITONES_IN_OCTAVE = 12;
 const CENTS_IN_SEMITONE = 100;
 const semitoneRatio = Math.pow(2, 1 / SEMITONES_IN_OCTAVE);
 
+const A4ToC4Ratio = 1.6818;
+
 // https://newt.phys.unsw.edu.au/jw/notes.html
 
 function frequencyToNote(
   frequency: number,
   transpose = 0,
-  displayAsSharp: boolean,
+  displayAsSharp = true,
+  concertPitch = 440,
 ): Note {
   const limitedFrequency = Math.min(
     Math.max(frequency, A0Frequency),
@@ -50,17 +48,19 @@ function frequencyToNote(
   frequency = limitedFrequency;
 
   const semitonesFromA4 =
-    SEMITONES_IN_OCTAVE * Math.log2(frequency / A4Frequency);
+    SEMITONES_IN_OCTAVE * Math.log2(frequency / concertPitch);
   const closestSemitone = Math.round(semitonesFromA4);
 
   const closestNoteFrequency =
-    A4Frequency * Math.pow(semitoneRatio, closestSemitone);
+    concertPitch * Math.pow(semitoneRatio, closestSemitone);
 
   const transposedFrequency =
-    A4Frequency *
+    concertPitch *
     Math.pow(2, (closestSemitone + transpose) / SEMITONES_IN_OCTAVE);
 
-  const octavesFromC4 = Math.log2(transposedFrequency / C4Frequency);
+  const octavesFromC4 = Math.log2(
+    transposedFrequency / (concertPitch / A4ToC4Ratio),
+  );
   const roundedOctave = Math.round(octavesFromC4 * 100) / 100;
   const octave = Math.floor(roundedOctave) + 4;
 

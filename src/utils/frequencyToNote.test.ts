@@ -242,3 +242,61 @@ it(" should return transposed notes correctly ", () => {
   };
   expect(frequencyToNote(frequency3, transpose3)).toEqual(expectedNote3);
 });
+
+it("should return correct notes for frequencies with different concert pitches", () => {
+  expect(frequencyToNote(432, 0, true, 432)).toEqual({
+    base: "A",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(446, 0, true, 446)).toEqual({
+    base: "A",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(256.87, 0, true, 432)).toEqual({
+    base: "C",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(265.19, 0, true, 446)).toEqual({
+    base: "C",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(484.9, 0, true, 432)).toEqual({
+    base: "B",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(500.62, 0, true, 446)).toEqual({
+    base: "B",
+    accidental: null,
+    octave: 4,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(1294.54, 0, true, 432)).toEqual({
+    base: "E",
+    accidental: null,
+    octave: 6,
+    cents: 0,
+  });
+
+  expect(frequencyToNote(1336.49, 0, true, 446)).toEqual({
+    base: "E",
+    accidental: null,
+    octave: 6,
+    cents: 0,
+  });
+});

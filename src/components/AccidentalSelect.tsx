@@ -26,7 +26,7 @@ const AccidentalSelect = ({
       value={displayAsSharp ? "#" : "b"}
       onValueChange={handleValueChange}
     >
-      <SelectTrigger className="text-body w-16 text-xl text-slate-100">
+      <SelectTrigger className="text-body w-24 text-xl text-slate-100">
         <SelectValue placeholder="♯" />
       </SelectTrigger>
       <SelectContent>
