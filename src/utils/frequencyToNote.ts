@@ -1,91 +1,46 @@
+import { A0Frequency, C8Frequency } from "@/constants";
 import {
-  A0Frequency,
-  A4Frequency,
-  C4Frequency,
-  C8Frequency,
-} from "@/constants";
+  type Accidental,
+  type BaseNote,
+  MusicalNote,
+} from "@/notes/MusicalNote";
 
 const NOTES = [
-  {
-    name: "A",
-    baseNote: "A",
-    accidental: null,
-  },
-  {
-    name: "A#",
-    baseNote: "A",
-    accidental: "#",
-  },
-  {
-    name: "B",
-    baseNote: "B",
-    accidental: null,
-  },
-  {
-    name: "C",
-    baseNote: "C",
-    accidental: null,
-  },
-  {
-    name: "C#",
-    baseNote: "C",
-    accidental: "#",
-  },
-
-  {
-    name: "D",
-    baseNote: "D",
-    accidental: null,
-  },
-  {
-    name: "D#",
-    baseNote: "D",
-    accidental: "#",
-  },
-
-  {
-    name: "E",
-    baseNote: "E",
-    accidental: null,
-  },
-  {
-    name: "F",
-    baseNote: "F",
-    accidental: null,
-  },
-  {
-    name: "F#",
-    baseNote: "F",
-    accidental: "#",
-  },
-  {
-    name: "G",
-    baseNote: "G",
-    accidental: null,
-  },
-  {
-    name: "G#",
-    baseNote: "G",
-    accidental: "#",
-  },
+  "A",
+  "A#",
+  "B",
+  "C",
+  "C#",
+  "D",
+  "D#",
+  "E",
+  "F",
+  "F#",
+  "G",
+  "G#",
 ] as const;
 
-type NoteName = (typeof NOTES)[number]["name"];
-
 export interface Note {
-  name: NoteName;
+  base: BaseNote;
+  accidental: Accidental;
   octave: number;
   cents: number;
-  accidental: "#" | null;
 }
 
 const SEMITONES_IN_OCTAVE = 12;
 const CENTS_IN_SEMITONE = 100;
 const semitoneRatio = Math.pow(2, 1 / SEMITONES_IN_OCTAVE);
 
+const A4ToC4Ratio = 1.6818;
+
 // https://newt.phys.unsw.edu.au/jw/notes.html
 
-function frequencyToNote(frequency: number): Note {
+function frequencyToNote(
+  frequency: number,
+  transpose = 0,
+  displayAsSharp = true,
+  concertPitch = 440,
+): Note {
   const limitedFrequency = Math.min(
     Math.max(frequency, A0Frequency),
     C8Frequency,
@@ -93,13 +48,19 @@ function frequencyToNote(frequency: number): Note {
   frequency = limitedFrequency;
 
   const semitonesFromA4 =
-    SEMITONES_IN_OCTAVE * Math.log2(frequency / A4Frequency);
+    SEMITONES_IN_OCTAVE * Math.log2(frequency / concertPitch);
   const closestSemitone = Math.round(semitonesFromA4);
 
   const closestNoteFrequency =
-    A4Frequency * Math.pow(semitoneRatio, closestSemitone);
+    concertPitch * Math.pow(semitoneRatio, closestSemitone);
 
-  const octavesFromC4 = Math.log2(frequency / C4Frequency);
+  const transposedFrequency =
+    concertPitch *
+    Math.pow(2, (closestSemitone + transpose) / SEMITONES_IN_OCTAVE);
+
+  const octavesFromC4 = Math.log2(
+    transposedFrequency / (concertPitch / A4ToC4Ratio),
+  );
   const roundedOctave = Math.round(octavesFromC4 * 100) / 100;
   const octave = Math.floor(roundedOctave) + 4;
 
@@ -112,20 +73,14 @@ function frequencyToNote(frequency: number): Note {
   const roundedCents = Math.round(Math.round(centsFromClosestNote * 100) / 100);
   const cents = Object.is(roundedCents, -0) ? 0 : roundedCents;
 
-  const noteIndex = (closestSemitone + NOTES.length) % NOTES.length;
+  const noteIndex = (closestSemitone + NOTES.length + transpose) % NOTES.length;
 
-  const note =
+  const noteName =
     NOTES[noteIndex < 0 ? noteIndex + SEMITONES_IN_OCTAVE : noteIndex];
 
-  return { name: note.baseNote, octave, cents, accidental: note.accidental };
+  const note = new MusicalNote(noteName, displayAsSharp).getNoteName();
+
+  return { base: note.base, accidental: note.accidental, octave, cents };
 }
 
 export default frequencyToNote;
-
-export function rotateArrayToStart(
-  array: readonly NoteName[],
-  startElement: NoteName,
-): NoteName[] {
-  const startIndex = array.indexOf(startElement);
-  return [...array.slice(startIndex), ...array.slice(0, startIndex)];
-}
