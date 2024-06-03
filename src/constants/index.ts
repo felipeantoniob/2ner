@@ -1,4 +1,5 @@
 import { PitchDetector } from "pitchy";
+
 import type { Pitch } from "../types";
 
 export const BUFFER_SIZE = 2048;

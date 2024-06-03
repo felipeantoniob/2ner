@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 import {
   Select,
   SelectContent,
@@ -6,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { Dispatch, SetStateAction } from "react";
 
 type AccidentalSelectProps = {
   displayAsSharp: boolean;

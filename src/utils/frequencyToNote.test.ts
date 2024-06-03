@@ -1,5 +1,7 @@
 import { expect, it } from "vitest";
-import frequencyToNote, { type Note } from "./frequencyToNote";
+
+import type { Note } from "./frequencyToNote";
+import frequencyToNote from "./frequencyToNote";
 
 const NOTES_C3_TO_C6 = [
   {

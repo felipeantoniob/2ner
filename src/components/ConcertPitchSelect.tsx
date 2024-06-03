@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 import {
   Select,
   SelectContent,
@@ -6,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { Dispatch, SetStateAction } from "react";
 
 const OPTIONS: number[] = [...Array(490 - 390 + 1).keys()].map((i) => i + 390);
 

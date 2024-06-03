@@ -1,9 +1,7 @@
-import { A0Frequency, C8Frequency } from "@/constants";
-import {
-  type Accidental,
-  type BaseNote,
-  MusicalNote,
-} from "@/notes/MusicalNote";
+import type { Accidental, BaseNote } from "@/notes/MusicalNote";
+
+import { A0Frequency, A4Frequency, C8Frequency } from "@/constants";
+import { MusicalNote } from "@/notes/MusicalNote";
 
 const NOTES = [
   "A",
@@ -39,7 +37,7 @@ function frequencyToNote(
   frequency: number,
   transpose = 0,
   displayAsSharp = true,
-  concertPitch = 440,
+  concertPitch = A4Frequency,
 ): Note {
   const limitedFrequency = Math.min(
     Math.max(frequency, A0Frequency),

@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 
-import { AudioInputContext } from "./useAudioInputContext";
-import { DEFAULT_PITCH } from "../constants";
-import useInterval from "./useInterval";
 import type { Pitch } from "../types";
+import { DEFAULT_PITCH } from "../constants";
 import getPitchFromFloatTimeDomainData from "../utils/getPitchFromFloatTimeDomainData";
+import { AudioInputContext } from "./useAudioInputContext";
 import useFloatTimeDomainData from "./useFloatTimeDomainData";
+import useInterval from "./useInterval";
 
 const usePitch = (interval: number) => {
   const { analyserNode, audioContext } = useContext(AudioInputContext);

@@ -1,6 +1,6 @@
-import calculateDecibels from "./calculateDecibels";
-import { detector } from "../constants";
 import type { Pitch } from "../types";
+import { detector } from "../constants";
+import calculateDecibels from "./calculateDecibels";
 
 function getPitchFromFloatTimeDomainData(
   floatTimeDomainData: Float32Array,

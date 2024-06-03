@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 import {
   Dialog,
   DialogContent,
@@ -5,10 +7,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import TranspositionSelect from "./TranspositionSelect";
-import type { Dispatch, SetStateAction } from "react";
 import AccidentalSelect from "./AccidentalSelect";
 import ConcertPitchSelect from "./ConcertPitchSelect";
+import TranspositionSelect from "./TranspositionSelect";
 
 const SettingsIcon = () => (
   <svg

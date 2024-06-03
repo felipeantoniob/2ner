@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { AudioInputContext } from "./useAudioInputContext";
 import { BUFFER_SIZE } from "../constants";
+import { AudioInputContext } from "./useAudioInputContext";
 import useInterval from "./useInterval";
 
 const floatTimeDomainData = new Float32Array(BUFFER_SIZE);

@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
+
 import type { Pitch } from "../types";
-import frequencyToNote, { Note } from "../utils/frequencyToNote";
+import type { Note } from "../utils/frequencyToNote";
 import { A0Frequency, C8Frequency } from "@/constants";
+import frequencyToNote from "../utils/frequencyToNote";
 
 type TunerProps = {
   pitch: Pitch;

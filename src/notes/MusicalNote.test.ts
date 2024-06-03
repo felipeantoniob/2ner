@@ -1,5 +1,6 @@
+import { describe, expect, it } from "vitest";
+
 import { MusicalNote } from "./MusicalNote";
-import { expect, it, describe } from "vitest";
 
 describe("MusicalNote", () => {
   describe("Constructor", () => {
