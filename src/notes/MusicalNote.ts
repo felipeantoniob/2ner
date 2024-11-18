@@ -1,27 +1,24 @@
 export type BaseNote = "C" | "D" | "E" | "F" | "G" | "A" | "B";
 export type Accidental = null | "#" | "b";
 
-const NOTE_NAMES = [
-  "C",
-  "C#",
-  "Db",
-  "D",
-  "D#",
-  "Eb",
-  "E",
-  "F",
-  "F#",
-  "Gb",
-  "G",
-  "G#",
-  "Ab",
-  "A",
-  "A#",
-  "Bb",
-  "B",
-] as const;
-
-type NoteName = (typeof NOTE_NAMES)[number];
+type NoteName =
+  | "C"
+  | "C#"
+  | "Db"
+  | "D"
+  | "D#"
+  | "Eb"
+  | "E"
+  | "F"
+  | "F#"
+  | "Gb"
+  | "G"
+  | "G#"
+  | "Ab"
+  | "A"
+  | "A#"
+  | "Bb"
+  | "B";
 
 interface IMusicalNote {
   base: BaseNote;

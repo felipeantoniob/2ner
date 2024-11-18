@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import { AudioInputContext } from "../hooks/useAudioInputContext";
+import { useAudioInputContext } from "@/context/AudioInput/useAudioInputContext";
 import checkAudioInput from "../utils/checkAudioInput";
 
 const InitOverlay = () => {
-  const { initAudioInput } = useContext(AudioInputContext);
+  const { initAudioInput } = useAudioInputContext();
   const [isVisible, setIsVisible] = useState(true);
 
   return (

@@ -1,13 +1,11 @@
-import { useContext } from "react";
-
+import { useAudioInputContext } from "@/context/AudioInput/useAudioInputContext";
 import { BUFFER_SIZE } from "../constants";
-import { AudioInputContext } from "./useAudioInputContext";
 import useInterval from "./useInterval";
 
 const floatTimeDomainData = new Float32Array(BUFFER_SIZE);
 
 const useFloatTimeDomainData = (interval: number) => {
-  const { analyserNode, audioContext } = useContext(AudioInputContext);
+  const { analyserNode, audioContext } = useAudioInputContext();
 
   useInterval(async () => {
     if (!analyserNode || !audioContext) {

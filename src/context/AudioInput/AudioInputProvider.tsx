@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { BUFFER_SIZE } from "../constants";
-import checkAudioInput from "../utils/checkAudioInput";
+import { BUFFER_SIZE } from "../../constants";
+import checkAudioInput from "../../utils/checkAudioInput";
+import { AudioInputContext } from "./AudioInputContext";
 
 const mediaTrackConstraints: MediaTrackConstraints = {
   echoCancellation: false,
@@ -11,22 +12,6 @@ const mediaTrackConstraints: MediaTrackConstraints = {
 };
 
 const mediaDevices = navigator.mediaDevices;
-
-interface AudioInputContextType {
-  audioContext: AudioContext | null;
-  analyserNode: AnalyserNode | null;
-  initAudioInput: () => Promise<void>;
-  stopAudioInput: () => void;
-  error: string | null;
-}
-
-export const AudioInputContext = createContext<AudioInputContextType>({
-  audioContext: null,
-  analyserNode: null,
-  initAudioInput: async () => {},
-  stopAudioInput: () => {},
-  error: null,
-});
 
 export const AudioInputContextProvider = ({
   children,
