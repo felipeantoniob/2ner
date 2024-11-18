@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { useAudioInputContext } from "@/context/AudioInput/useAudioInputContext";
-import checkAudioInput from "../utils/checkAudioInput";
+import { useAudioInputContext } from "~/context/AudioInput/useAudioInputContext";
+import checkAudioInput from "~/utils/checkAudioInput";
 
 const InitOverlay = () => {
   const { initAudioInput } = useAudioInputContext();

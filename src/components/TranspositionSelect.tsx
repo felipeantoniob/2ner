@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "~/components/ui/select";
 
 const TRANSPOSITION_ITEMS = [
   { label: "C (-12)", value: -12 },

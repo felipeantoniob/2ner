@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "~/components/ui/select";
 
 const OPTIONS: number[] = [...Array(490 - 390 + 1).keys()].map((i) => i + 390);
 

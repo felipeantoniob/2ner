@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { AudioInputContext } from "@/context/AudioInput/AudioInputContext";
+import { AudioInputContext } from "~/context/AudioInput/AudioInputContext";
 
 export const useAudioInputContext = () => {
   const context = useContext(AudioInputContext);

@@ -1,7 +1,6 @@
-import type { Accidental, BaseNote } from "@/notes/MusicalNote";
-
-import { A0Frequency, A4Frequency, C8Frequency } from "@/constants";
-import { MusicalNote } from "@/notes/MusicalNote";
+import type { Accidental, BaseNote } from "~/notes/MusicalNote";
+import { A0Frequency, A4Frequency, C8Frequency } from "~/constants";
+import { MusicalNote } from "~/notes/MusicalNote";
 
 const NOTES = [
   "A",

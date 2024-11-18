@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 
-import { BUFFER_SIZE } from "../../constants";
-import checkAudioInput from "../../utils/checkAudioInput";
+import { BUFFER_SIZE } from "~/constants";
+import checkAudioInput from "~/utils/checkAudioInput";
 import { AudioInputContext } from "./AudioInputContext";
 
 const mediaTrackConstraints: MediaTrackConstraints = {

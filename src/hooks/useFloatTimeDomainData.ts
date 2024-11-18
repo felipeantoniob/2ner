@@ -1,5 +1,5 @@
-import { useAudioInputContext } from "@/context/AudioInput/useAudioInputContext";
-import { BUFFER_SIZE } from "../constants";
+import { BUFFER_SIZE } from "~/constants";
+import { useAudioInputContext } from "~/context/AudioInput/useAudioInputContext";
 import useInterval from "./useInterval";
 
 const floatTimeDomainData = new Float32Array(BUFFER_SIZE);

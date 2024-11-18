@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "~/hooks/useWindowSize";
 
 type WaveformProps = {
   floatTimeDomainData: Float32Array | null;

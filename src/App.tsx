@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import BackgroundContainer from "./components/BackgroundContainer";
-import Gradients from "./components/Gradients";
-import InitOverlay from "./components/InitOverlay";
-import Oscilloscope from "./components/Oscilloscope";
-import SettingsDialog from "./components/SettingsDialog";
-import Tuner from "./components/Tuner";
-import { A4Frequency } from "./constants";
-import useFloatTimeDomainData from "./hooks/useFloatTimeDomainData";
-import usePitch from "./hooks/usePitch";
-import frequencyToNote from "./utils/frequencyToNote";
+import BackgroundContainer from "~/components/BackgroundContainer";
+import Gradients from "~/components/Gradients";
+import InitOverlay from "~/components/InitOverlay";
+import Oscilloscope from "~/components/Oscilloscope";
+import SettingsDialog from "~/components/SettingsDialog";
+import Tuner from "~/components/Tuner";
+import { A4Frequency } from "~/constants";
+import useFloatTimeDomainData from "~/hooks/useFloatTimeDomainData";
+import usePitch from "~/hooks/usePitch";
+import frequencyToNote from "~/utils/frequencyToNote";
 
 function App() {
   const floatTimeDomainData = useFloatTimeDomainData(100);

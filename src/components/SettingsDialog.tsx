@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "~/components/ui/dialog";
 import AccidentalSelect from "./AccidentalSelect";
 import ConcertPitchSelect from "./ConcertPitchSelect";
 import TranspositionSelect from "./TranspositionSelect";

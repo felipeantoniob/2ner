@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import type { Pitch } from "../types";
-import { DEFAULT_PITCH } from "../constants";
-import { useAudioInputContext } from "../context/AudioInput/useAudioInputContext";
-import getPitchFromFloatTimeDomainData from "../utils/getPitchFromFloatTimeDomainData";
+import type { Pitch } from "~/types";
+import { DEFAULT_PITCH } from "~/constants";
+import { useAudioInputContext } from "~/context/AudioInput/useAudioInputContext";
+import getPitchFromFloatTimeDomainData from "~/utils/getPitchFromFloatTimeDomainData";
 import useFloatTimeDomainData from "./useFloatTimeDomainData";
 import useInterval from "./useInterval";
 
