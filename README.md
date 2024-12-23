@@ -1,30 +1,76 @@
-# React + TypeScript + Vite
+# 2ner - A Simple Instrument Tuner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+`2ner` is a lightweight, web-based tuner designed for tuning musical instruments. Built with modern web technologies like Vite, React, TypeScript, and TailwindCSS, it offers a simple interface to help you tune your instruments quickly and easily.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Pitch Detection**: Accurately detects and displays the pitch of the instrument in real-time.
+- **User-friendly Interface**: Clean and minimal design to focus on tuning.
+- **Responsive Design**: Works across all devices, from desktops to mobile phones.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: For building the user interface.
+- **Tailwind CSS**: For styling the app.
+- **Pitchy**: For pitch detection.
+- **Vite**: For fast development and bundling.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+To run the tuner locally, follow these steps:
+
+### Prerequisites
+
+- Node.js (>=20.16.0)
+- pnpm (Recommended package manager)
+
+### Installation
+
+1. Clone this repository:
+
+```zsh
+git clone https://github.com/your-username/2ner.git
+cd 2ner
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install dependencies using pnpm:
+
+```zsh
+pnpm install
+```
+
+### Running the Development Server
+
+To start the development server:
+
+```zsh
+pnpm dev
+```
+
+This will start the app locally at `<http://localhost:5173>.
+
+### Building for Production
+
+To build the app for production:
+
+```bash
+pnpm build
+```
+
+### Preview the Production Build
+
+After building the app, you can preview it with:
+
+```bash
+pnpm preview
+```
+
+## License
+
+This project is open-source and available under the [MIT License](/LICENSE).
+
+## Author
+
+Felipe Buencamino
+
+---
